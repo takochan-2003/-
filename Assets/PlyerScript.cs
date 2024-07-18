@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlyerScript : MonoBehaviour
 {
-
     public CharacterController characterController;
 
     //ˆÚ“®‚ÌÅ‚‘¬“x
