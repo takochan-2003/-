@@ -87,10 +87,17 @@ public class PlyerScript : MonoBehaviour
         }else if(Input.GetButtonUp("Fire3"))
         {
 
-            //ボタンを離した処理
-            Vector3 position = transform.position;    
+            ////ボタンを離した処理
+            //
+            //position.y += 0.8f;
+            //position.z += 1.0f;
+            //
+            //Instantiate(bullet, position, Quaternion.identity);
+            Vector3 position = transform.position;
             Instantiate(bullet, position, Quaternion.identity);
-            
+
+            Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+            bulletRigidbody.AddForce(transform.forward * 100);
         }
         else
         {
