@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityChan;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class bulletScript : MonoBehaviour
