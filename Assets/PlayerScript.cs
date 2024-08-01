@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlyerScript : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
     public GameObject bullet;
     public CharacterController characterController;
@@ -18,7 +18,7 @@ public class PlyerScript : MonoBehaviour
     private Vector3 velocity;
 
     //投げるパワー
-    float throwPower = 0.0f;
+    public float throwPower = 0.0f;
     const float maxThrowPower = 50.0f;
 
     // Start is called before the first frame update
@@ -43,7 +43,7 @@ public class PlyerScript : MonoBehaviour
             //パッドのスティック入力を所得して移動ベクトルを作成
             vec = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
             //入力値が0.1以上なら速さを設定
-            if(vec.magnitude > 0.1)
+            if (vec.magnitude > 0.1)
             {
                 //スティックの倒し具合で速さを変更
                 speed = Mathf.Lerp(this.minSpeed, this.maxSpeed, vec.magnitude);
@@ -57,7 +57,7 @@ public class PlyerScript : MonoBehaviour
 
                 //モデルの向きを変更
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, Q, this.turnRate);
-                
+
             }
             //移動ベクトルを正規化
             vec = vec.normalized;
@@ -80,11 +80,12 @@ public class PlyerScript : MonoBehaviour
             //ボタンを押し続けている処理
 
             throwPower += 0.14f;
-            if(throwPower>=maxThrowPower)
+            if (throwPower >= maxThrowPower)
             {
                 throwPower = maxThrowPower;
             }
-        }else if(Input.GetButtonUp("Fire3"))
+        }
+        else if (Input.GetButtonUp("Fire3"))
         {
 
             ////ボタンを離した処理
@@ -103,7 +104,7 @@ public class PlyerScript : MonoBehaviour
         {
             throwPower = 0.0f;
         }
-       
+
 
         Debug.Log(throwPower);
 
