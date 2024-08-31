@@ -19,7 +19,7 @@ public class PlayerScript : MonoBehaviour
 
     //投げるパワー
     public float throwPower = 0.0f;
-    const float maxThrowPower = 50.0f;
+    const float maxThrowPower = 20.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +79,7 @@ public class PlayerScript : MonoBehaviour
         {
             //ボタンを押し続けている処理
 
-            throwPower += 0.14f;
+            throwPower += 0.05f;
             if (throwPower >= maxThrowPower)
             {
                 throwPower = maxThrowPower;
